@@ -2,10 +2,6 @@ local fileselect = require 'fileselect'
 local textentry = require 'textentry'
 local util = require 'util'
 
--- mod stuff
--- local mod = require 'norns-tape-mod/lib/mod'
--- local tapename = mod.return_tapename()
-
 local TAPE_MODE_PLAY = 1
 local TAPE_MODE_REC = 2
 
@@ -49,27 +45,16 @@ local function tape_exists(index)
   if type(index) == "number" then
     index = string.format("%04d",index)
   end
-  -- local filename = _path.audio.."tape/"..index..".wav"
-  -- local filename = _path.audio.."tape/" .. tapename .. "_" ..index..".wav"
-  -- local filename = _path.audio.."tape/" .. get_tapename() .. "_" ..index..".wav"
-  
-  -- local filename = _path.audio.."tape/" .. index .. "_" .. get_tapename() .. ".wav"
   local tapename = select(2, get_tapename())
-  -- local filename = _path.audio.."tape/" .. index .. get_tapename() .. ".wav"
   local filename = _path.audio.."tape/" .. index .. tapename .. ".wav"
-  -- tab.print(util.scandir(_path.audio.."tape/"))
-  -- print(util.file_exists(filename))
   if util.file_exists(filename) then
-    -- return true
     return true, "file"
   end
   local tapes = util.scandir(_path.audio.."tape/")
   for i=1, #tapes do
     local t = string.gsub(tapes[i], ".wav", "")
-    -- local t = t:sub(-4)
     local t = t:sub(1,4)
     if t == index then
-      -- return true
       return true, "index"
     end
   end
@@ -117,7 +102,6 @@ local function edit_filename(txt)
     return
   end
   
-  -- if txt == string.format("%04d",m.fileindex) then
   if txt:match("%d%d%d%d$") == string.format("%04d",m.fileindex) then
     update_tape_index()
   end
@@ -210,8 +194,6 @@ m.key = function(n,z)
         read_tape_index()
         textentry.enter(
           edit_filename,
-          -- tapename .. "_" .. string.format("%04d",m.fileindex), -- mod stuff
-          -- string.format("%04d",m.fileindex) .. "_" .. tapename,
           string.format("%04d",m.fileindex) .. tapename,
           "custom tape filename:", -- mod stuff
           function(txt)
