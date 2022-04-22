@@ -158,15 +158,6 @@ m.key = function(n, z)
   return edit_prefix
 end
 
--- function below is probs useless
-
--- local function return_prefix(txt)
---   prefix = txt
---   prefix_length = screen.text_extents(prefix)
---   mod.menu.redraw()
---   return prefix, prefix_length
--- end
-
 m.redraw = function()
 
   -- print(prefix_length)
@@ -231,7 +222,7 @@ m.redraw = function()
   name_length = px_length(preview_name)
   
   -- resetting scroll if name short enough
-  if position <= 3 and name_length <= 124 then 
+  if position <= 3 and name_length < 124 then 
     scroll = 0
   end
   screen.level(3)
@@ -247,7 +238,7 @@ m.redraw = function()
   else
     screen.level(3)
   end
-  if name_length >= 124 then
+  if name_length > 124 then
     screen.text(preview_name)
   else
     screen.move(64, 59)
