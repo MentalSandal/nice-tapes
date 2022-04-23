@@ -1,5 +1,5 @@
 # nice-tapes
-A norns mod for more descriptive tape names
+A norns mod for more descriptive tape names.
 
 ![nice-tapes004](https://user-images.githubusercontent.com/85847646/164801933-05495de2-029d-48ea-a0bf-877de06e149a.png)
 
