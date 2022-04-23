@@ -9,7 +9,7 @@ A norns mod for more descriptive tape names
 ```
 ;install https://github.com/MentalSandal/nice-tapes
 ``` 
-`nice-tapes` is also available from maiden's catalog.    
+`nice-tapes` will also be available from maiden's catalog soon.    
 
 More info about mods in general can be found in the [docs](https://monome.org/docs/norns/community-scripts/).
 
@@ -17,11 +17,11 @@ More info about mods in general can be found in the [docs](https://monome.org/do
 ## setup
 Head to `SYSTEM > MODS` then select `nice-tapes` and turn `E2` until you  
 see a + sign.  
-Restart your norns and you're ready to configure your tape naming convention.
+Restart your norns and you're ready to configure your  naming convention.
 
 
 ## configuration
-Access the menu by going back to the mods page, selecting nice-tapes and  
+Access the menu by going back to the mods page, selecting `nice-tapes` and  
  pressing `K3`.
 
 You can choose different descriptors that will be added to your tape file names,  
@@ -30,7 +30,7 @@ next time you save a tape.
 The different options are: 
 - *date*     (an internet connection is required to get an accurate date)
 - *tempo*     (based on your current clock bpm)
-- *script name*     (will be left blank is no script is running)
+- *script name*     (will be left blank if no script is running)
 - *prefix*     a user-defined name/tag. ie. `norns`, `shield`, `sketch`, etc...
 
 If a prefix isn't required, setting it to an empty string will disable it.  
