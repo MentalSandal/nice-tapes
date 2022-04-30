@@ -44,13 +44,3 @@ If the name is too long to fit on the display, select the preview and use `K3` t
 Setting a prefix or simply validating an existing one by pressing ok in the text entry  
 menu will save all the options into a txt file in `dust/data/nice-tapes` so that options  
 are recalled after a reboot.
-
-## a word on indices
-Because the file name may be different from norns' standards,  the incrementation of  
-the index is slightly altered:  
-
-Norns will increment the index if:
-- a matching filename is found
-- if a customised filename has an index matching the latest number in index.txt
-
-In pratice this means that new tapes should have an incremented index, as expected.
