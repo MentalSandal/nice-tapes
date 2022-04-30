@@ -45,8 +45,7 @@ local function tape_exists(index)
   if type(index) == "number" then
     index = string.format("%04d",index)
   end
-  local tapename = select(2, get_tapename())
-  local filename = _path.tape..index..tapename..".wav"
+  local filename = _path.tape..index..".wav"
   return util.file_exists(filename)
 end
 
