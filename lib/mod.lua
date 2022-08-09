@@ -21,8 +21,8 @@ local bpm_option = 1
 local script_option = 1
 local prefix_entry = false
 local state = {}
-local tempo = tostring(clock.get_tempo()):gsub("%.", "_")
-local today = util.os_capture("date +%y%m%d") or "datenotfound"
+local tempo = nil
+local today = nil
 local script = nil
 local prefix = "norns"
 local prefix_length = 0
@@ -39,9 +39,21 @@ function get_tapename() -- returns the current name
                         -- this function is global because it's also called by
                         -- tape_inject.lua
   
-  local _today = date_option == 1 and "_" .. today or ""
+  local _today
+  if date_option == 1 then
+    today = util.os_capture("date +%y%m%d") or "datenotfound"
+  	_today = "_" .. today
+  else
+  	_today = ""
+  end
   local _script = script_option == 1 and script ~= nil and "_" .. script or ""
-  local _tempo = bpm_option == 1 and "_" .. tempo .. "_bpm" or ""
+  local _tempo
+  if bpm_option == 1 then
+    tempo = tostring(clock.get_tempo()):gsub("%.", "_")
+    _tempo = "_" .. tempo .. "_bpm"
+  else
+    _tempo = ""
+  end
   local _extension = ".wav"
   local prefix = prefix ~= '' and "_" .. prefix or ""
   local _index = "####"
